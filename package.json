@@ -6,7 +6,10 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha"
+    "knex": "knex",
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
+    "nodemon": "nodemon server.js",
+    "test": "mocha",
   },
   "dependencies": {
     "bcrypt": "^3.0.2",
@@ -25,5 +28,9 @@
     "dotenv": "^2.0.0",
     "mocha": "^5.2.0",
     "supertest": "^3.3.0"
+  },
+    "engines": {
+      "node": "v10.11.0"
+    }
   }
 }
